@@ -1,29 +1,62 @@
-/*FUNCION1*/
 <?php
-function FUNCION1($videojuegos){
 
-    echo "<table border=1>";
-    echo "<tr>";
-    echo "<th>Nom</th>";
-    echo "<th>Desenvolupador</th>";
-    echo "<th>Plataforma</th>";
-    echo "<th>Llançament</th>";
-    echo "</tr>";
+function carregarInformacio() {
+    $fitxer = 'games.json';
+    $contingut = file_get_contents($fitxer);
+    $informacio = json_decode($contingut, true);
 
-    foreach($videojuegos as $videojuego){
-        echo "<tr>";
-        echo "<td>{$videojuego['Nom']}</td>";
-        echo "<td>{$videojuego['Desenvolupador']}</td>";
-        echo "<td>{$videojuego['Plataforma']}</td>";
-        echo "<td>{$videojuego['Llançament']}</td>";
-        echo "</tr>";
-    }
-
-    echo '</table>';
+    return $informacio;
 }
 
-$juegosjson = file_get_contents('games.json');
-$videojuegos = json_decode($juegosjson, true);
+function mostrarVideojocs($videojocs) {
+    echo '
+    <!DOCTYPE html>
+    <html lang="ca">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mostra de Videojocs</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            th, td {
+                padding: 10px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Mostra de Videojocs</h1>';
 
-FUNCION1($videojuegos);
+    if (!empty($videojocs)) {
+        echo '<table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Desenvolupador</th>
+                    <th>Any de Llançament</th>
+                </tr>';
+
+        foreach ($videojocs as $videojoc) {
+            echo '<tr>
+                    <td>' . $videojoc['Nom'] . '</td>
+                    <td>' . $videojoc['Desenvolupador'] . '</td>
+                    <td>' . $videojoc['Llançament'] . '</td>
+                </tr>';
+        }
+
+        echo '</table>';
+    } else {
+        echo '<p>No hay información de videojuegos disponible.</p>';
+    }
+
+    echo '</body>
+    </html>';
+}
 ?>
