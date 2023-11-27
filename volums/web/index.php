@@ -15,7 +15,7 @@
         <label for="menu-toggle">&#9776; Menú</label>
         <ul>
             <li><a href="funcion1.php">Mostra de Videojocs</a></li>
-            <li><a href="#assignar">Assignar Codi</a></li>
+            <li><a href="funcion2.php">Assignar Codi</a></li>
             <li><a href="#eliminar">Eliminar Videojocs</a></li>
             <li><a href="#afegir">Afegir Data Expiració</a></li>
             <li><a href="#comprovar">Comprovar Repetits</a></li>
