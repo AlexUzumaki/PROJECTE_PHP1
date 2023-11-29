@@ -97,22 +97,18 @@ function asignarNumeroAVideojuegos($videojocs) {
 <!-- CUARTA FUNCIÓN -->
 <!-- QUINTA FUNCIÓN -->
 <?php
-// Función para verificar registros duplicados
 function jocsRepetits($jsonString) {
     $videojocs = json_decode($jsonString, true);
+    $ids = array();
 
-    $idsVistos = array();
     foreach ($videojocs as $videojoc) {
         if (isset($videojoc['ID'])) {
-            if (in_array($videojoc['ID'], $idsVistos)) {
-                return 1; // Hay registros duplicados, devuelve 1
-            } else {
-                $idsVistos[] = $videojoc['ID'];
-            }
+            $ids[] = $videojoc['ID'];
         }
     }
 
-    return 0; // No hay registros duplicados, devuelve 0
+    return count($ids) !== count(array_unique($ids)) ? 1 : 0;
 }
 ?>
+
 
