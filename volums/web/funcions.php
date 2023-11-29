@@ -67,13 +67,11 @@ function mostrarVideojocs($videojocs) {
 // funcions.php
 
 function asignarNumeroAVideojuegos($videojocs) {
-    // Aquí implementa la lógica para asignar un número a cada juego
-    // Puedes modificar el array $videojocs o devolver un nuevo array con los números asignados
-    // Por ejemplo, puedes usar un bucle para asignar números secuenciales.
-    $numero = 1;
+    // Hacemos un foreach para recorrer cada parametro y hacemos un simple numero++ para ir incrementando el número
+    $ID = 1;
     foreach ($videojocs as &$videojoc) {
-        $videojoc['Numero'] = $numero;
-        $numero++;
+        $videojoc['ID'] = $ID;
+        $ID++;
     }
 
     return $videojocs;
