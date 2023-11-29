@@ -17,9 +17,9 @@
         <ul>
             <li><a href="funcion1.php">TOTS ELS NOSTRES JOCS</a></li>
             <li><a href="funcion2.php">ID'S DELS JOCS</a></li>
-            <li><a href="#eliminar">Eliminar Videojocs</a></li>
+            <li><a href="funcion3.php">Eliminar Videojocs</a></li>
             <li><a href="#afegir">Afegir Data Expiració</a></li>
-            <li><a href="#comprovar">Comprovar Repetits</a></li>
+            <li><a href="funcion5.php">Comprovar Repetits</a></li>
             <li><a href="#comprovarAmpliada">Comprovar Repetits Ampliada</a></li>
             <li><a href="#eliminarRepetits">Eliminar Repetits</a></li>
             <li><a href="#modernAntic">Videojoc més Modern i més Antic</a></li>
