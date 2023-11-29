@@ -1,5 +1,5 @@
 <?php
-
+// funcion 1
 function carregarInformacio() {
     $fitxer = 'games.json';
     $contingut = file_get_contents($fitxer);
@@ -64,16 +64,33 @@ function mostrarVideojocs($videojocs) {
 
 <?php
 
-// funcions.php
-
 function asignarNumeroAVideojuegos($videojocs) {
-    // Hacemos un foreach para recorrer cada parametro y hacemos un simple numero++ para ir incrementando el número
-    $ID = 1;
-    foreach ($videojocs as &$videojoc) {
-        $videojoc['ID'] = $ID;
-        $ID++;
+    // Cargar el contenido del archivo JSON
+    $fitxer = 'games.json';
+    $contingut = file_get_contents($fitxer);
+    $videojocsExistents = json_decode($contingut, true);
+
+    // Verificar si ya hay videojuegos con ID asignado
+    $maxID = 0;
+    foreach ($videojocsExistents as $videojoc) {
+        if (isset($videojoc['ID'])) {
+            $maxID = max($maxID, $videojoc['ID']);
+        }
     }
+
+    // Asignar ID a los videojuegos que no lo tienen
+    foreach ($videojocs as &$videojoc) {
+        if (!isset($videojoc['ID'])) {
+            $maxID++;
+            $videojoc['ID'] = $maxID;
+        }
+    }
+
+    // Sobrescribir el archivo original con la información actualizada
+    file_put_contents($fitxer, json_encode($videojocs, JSON_PRETTY_PRINT));
 
     return $videojocs;
 }
 ?>
+
+<!-- TERCERA FUNCIÓN, ELIMINAR VIDEOJUEGO -->
