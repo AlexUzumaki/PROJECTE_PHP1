@@ -94,7 +94,58 @@ function asignarNumeroAVideojuegos($videojocs) {
 ?>
 
 <!-- TERCERA FUNCIÓN, ELIMINAR VIDEOJUEGO -->
+<?php
+function eliminarJuegosPorFecha($archivoOriginal, $archivoResultado) {
+    // Leer el contenido del archivo original
+    $contenidoOriginal = file_get_contents($archivoOriginal);
+
+    // Decodificar el JSON a un array asociativo
+    $videojocs = json_decode($contenidoOriginal, true);
+
+    // Filtrar los juegos por la fecha
+    $videojocsFiltrados = array_filter($videojocs, function($juego) {
+        $fechaLanzamiento = $juego['Llançament'];
+
+        // Verificar si la fecha está fuera del rango deseado (2020-01-01 a 2020-12-31)
+        return !(strtotime($fechaLanzamiento) >= strtotime('2020-01-01') && strtotime($fechaLanzamiento) <= strtotime('2020-12-31'));
+    });
+
+    // Crear un nuevo archivo JSON con la información actualizada
+    file_put_contents($archivoResultado, json_encode($videojocsFiltrados, JSON_PRETTY_PRINT));
+
+    return $videojocsFiltrados;
+}
+
+function carregarInformaciono2020() {
+    $fitxer2 = 'JSON_Resultat_Eliminar.json';
+    $contingut2 = file_get_contents($fitxer2);
+    $informacio2 = json_decode($contingut2, true);
+
+    return $informacio2;
+}
+?>
 <!-- CUARTA FUNCIÓN -->
+<?php
+
+function cargarinfo() {
+    $fitxer = 'games.json';
+    $contingut = file_get_contents($fitxer);
+    $informacio = json_decode($contingut, true);
+
+    return $informacio;
+}
+
+function agregarFechaExpiracion($juegos) {
+    foreach ($juegos as &$juego) {
+        $fechaLanzamiento = new DateTime($juego['Llançament']);
+        $fechaExpiracion = $fechaLanzamiento->modify('+5 years')->format('Y-m-d');
+        $juego['FechaExpiracion'] = $fechaExpiracion;
+    }
+
+    return $juegos;
+}
+
+?>
 <!-- QUINTA FUNCIÓN -->
 <?php
 function jocsRepetits($jsonString) {
