@@ -1,7 +1,10 @@
 <?php
 // funcion5.php
 include 'funcions.php';
+mostrarMenu();
+?>
 
+<?php
 // Cargar información desde el archivo JSON
 $informacio = carregarInformacio();
 

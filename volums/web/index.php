@@ -22,8 +22,8 @@
             <li><a href="funcion5.php">Comprovar Repetits</a></li>
             <li><a href="#comprovarAmpliada">Comprovar Repetits Ampliada</a></li>
             <li><a href="#eliminarRepetits">Eliminar Repetits</a></li>
-            <li><a href="#modernAntic">Videojoc més Modern i més Antic</a></li>
-            <li><a href="#ordenar">Ordenació Alfabètica de Videojocs</a></li>
+            <li><a href="funcion8.php">Videojoc més Modern i més Antic</a></li>
+            <li><a href="funcion9.php">Ordenació Alfabètica de Videojocs</a></li>
         </ul>
     </nav>
 </body>

@@ -1,29 +1,15 @@
 <?php
 include 'funcions.php';
+mostrarMenu();
+?>
 
+<?php
 $juegos = cargarinfo();
 $juegosConFechaExpiracion = agregarFechaExpiracion($juegos);
 
 $jsonResult = json_encode($juegosConFechaExpiracion, JSON_PRETTY_PRINT);
 
 file_put_contents('JSON_Resultat_Data_Expiració.json', $jsonResult);
-
-echo '<style>';
-echo 'table {';
-echo '    border-collapse: collapse;';
-echo '    width: 100%;';
-echo '}';
-echo 'table, th, td {';
-echo '    border: 1px solid black;';
-echo '}';
-echo 'th, td {';
-echo '    padding: 10px;';
-echo '    text-align: left;';
-echo '}';
-echo 'th {';
-echo '    background-color: #f2f2f2;';
-echo '}';
-echo '</style>';
 
 // Mostrar el resultado en forma de tabla
 echo '<h1>ID DELS VIDEOJOCS</h1>';

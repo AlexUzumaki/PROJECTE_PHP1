@@ -1,13 +1,12 @@
 <?php
 include 'funcions.php';
+mostrarMenu();
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="funcio2.css">
     <title>ID DELS VIDEOJOCS</title>
 </head>
 <body>

@@ -1,5 +1,5 @@
+<!-- Primera función -->
 <?php
-// funcion 1
 function carregarInformacio() {
     $fitxer = 'games.json';
     $contingut = file_get_contents($fitxer);
@@ -7,33 +7,12 @@ function carregarInformacio() {
 
     return $informacio;
 }
-
 function mostrarVideojocs($videojocs) {
-    echo '
-    <!DOCTYPE html>
-    <html lang="ca">
-    <head>
-        <meta charset="UTF-8">
-        <title>Mostra de Videojocs</title>
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 100%;
-            }
-            table, th, td {
-                border: 1px solid black;
-            }
-            th, td {
-                padding: 10px;
-                text-align: left;
-            }
-            th {
-                background-color: #f2f2f2;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Mostra de Videojocs</h1>';
+    echo '<html>
+            <head>
+                <title>Información de Videojuegos</title>
+            </head>
+            <body>';
 
     if (!empty($videojocs)) {
         echo '<table>
@@ -159,6 +138,58 @@ function jocsRepetits($jsonString) {
     }
 
     return count($ids) !== count(array_unique($ids)) ? 1 : 0;
+}
+?>
+<!-- SEXTA FUNCIÓN -->
+<!-- SEPTIMA FUNCIÓN -->
+<!-- OCTAVA FUNCIÓN -->
+<?php
+function ordenarPorFecha($fecha) {
+    usort($fecha, function($fecha1, $fecha2) {
+        return strtotime($fecha1['Llançament']) - strtotime($fecha2['Llançament']);
+    });
+    return $fecha;
+}
+?>
+<!-- NOVENA FUNCIÓN -->
+<?php
+
+function cargarInfoJuegos() {
+    $archivo = 'games.json';
+    $contenido = file_get_contents($archivo);
+    $informacion = json_decode($contenido, true);
+
+    return $informacion;
+}
+
+function ordenarJuegosAlfabeticamente($juegos) {
+    usort($juegos, function ($a, $b) {
+        return strcmp($a['Nom'], $b['Nom']);
+    });
+
+    return $juegos;
+}
+?>
+
+<!-- mostrar menú -->
+<?php
+function mostrarMenu() {
+    echo '<link rel="stylesheet" href="index.css">';
+    echo '<nav>';
+    echo '<input type="checkbox" id="menu-toggle">';
+    echo '<label for="menu-toggle">☰ Menú</label>';
+    echo '<ul>';
+    echo '<li><a href="funcion1.php">TOTS ELS NOSTRES JOCS</a></li>';
+    echo '<li><a href="funcion2.php">ID\'S DELS JOCS</a></li>';
+    echo '<li><a href="funcion3.php">Eliminar Videojocs</a></li>';
+    echo '<li><a href="funcion4.php">Afegir Data Expiració</a></li>';
+    echo '<li><a href="funcion5.php">Comprovar Repetits</a></li>';
+    echo '<li><a href="#comprovarAmpliada">Comprovar Repetits Ampliada</a></li>';
+    echo '<li><a href="#eliminarRepetits">Eliminar Repetits</a></li>';
+    echo '<li><a href="funcion8.php">Videojoc més Modern i més Antic</a></li>';
+    echo '<li><a href="funcion9.php">Ordenació Alfabètica de Videojocs</a></li>';
+    echo '</ul>';
+    echo '</nav>';
 }
 ?>
 
