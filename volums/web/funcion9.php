@@ -7,23 +7,6 @@ $juegosOrdenados = ordenarJuegosAlfabeticamente($juegos);
 $jsonResult = json_encode($juegosOrdenados, JSON_PRETTY_PRINT);
 file_put_contents('JSON_Resultat_ordenat_alfabetic.json', $jsonResult);
 
-echo '<style>';
-echo 'table {';
-echo '    border-collapse: collapse;';
-echo '    width: 100%;';
-echo '}';
-echo 'table, th, td {';
-echo '    border: 1px solid black;';
-echo '}';
-echo 'th, td {';
-echo '    padding: 10px;';
-echo '    text-align: left;';
-echo '}';
-echo 'th {';
-echo '    background-color: #f2f2f2;';
-echo '}';
-echo '</style>';
-
 // Mostrar la tabla
 echo '<h1>VIDEOJUEGOS ORDENADOS ALFABÉTICAMENTE</h1>';
 echo '<table>';

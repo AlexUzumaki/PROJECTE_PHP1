@@ -190,7 +190,23 @@ function mostrarMenu() {
     echo '<li><a href="funcion9.php">Ordenació Alfabètica de Videojocs</a></li>';
     echo '</ul>';
     echo '</nav>';
-}
+    echo '<style>';
+    echo 'table {';
+    echo '    border-collapse: collapse;';
+    echo '    width: 100%;';
+    echo '}';
+    echo 'table, th, td {';
+    echo '    border: 1px solid black;';
+    echo '}';
+    echo 'th, td {';
+    echo '    padding: 10px;';
+    echo '    text-align: left;';
+    echo '}';
+    echo 'th {';
+    echo '    background-color: #f2f2f2;';
+    echo '}';
+    echo '</style>';
+    }
 ?>
 
 
