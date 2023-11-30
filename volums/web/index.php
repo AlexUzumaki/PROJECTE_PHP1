@@ -24,6 +24,7 @@
             <li><a href="#eliminarRepetits">Eliminar Repetits</a></li>
             <li><a href="funcion8.php">Videojoc més Modern i més Antic</a></li>
             <li><a href="funcion9.php">Ordenació Alfabètica de Videojocs</a></li>
+            <li><a href="funcion10.php">Comptar els videojocs de cada any</a></li>
         </ul>
     </nav>
 </body>
