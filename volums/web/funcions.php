@@ -141,7 +141,47 @@ function jocsRepetits($jsonString) {
 }
 ?>
 <!-- SEXTA FUNCIÓN -->
+<?php
+function carregarInformacioFuncion6() {
+    $archivoFuncion6 = 'games.json';
+    $contenidoFuncion6 = file_get_contents($archivoFuncion6);
+    $informacionFuncion6 = json_decode($contenidoFuncion6, true);
+    return $informacionFuncion6;
+}
+
+function comprobarRepetitsFuncion6($juegosFuncion6) {
+    $repetidosFuncion6 = [];
+    $contadorFuncion6 = array_count_values(array_column($juegosFuncion6, 'Nom'));
+
+    foreach ($contadorFuncion6 as $nombreFuncion6 => $cantidadFuncion6) {
+        if ($cantidadFuncion6 > 1) {
+            $repetidosFuncion6[$nombreFuncion6] = $cantidadFuncion6;
+        }
+    }
+
+    return $repetidosFuncion6;
+}
+
+function guardarRepetidosEnJSONFuncion6($repetidosFuncion6) {
+    $jsonResultFuncion6 = json_encode($repetidosFuncion6, JSON_PRETTY_PRINT);
+    file_put_contents('JSON_Resultat_repetits.json', $jsonResultFuncion6);
+}
+?>
+
 <!-- SEPTIMA FUNCIÓN -->
+<?php
+function eliminarRepetits($juegos) {
+    $juegossinrepetir = array_map("unserialize", array_unique(array_map("serialize", $juegos)));
+
+    return $juegossinrepetir;
+}
+
+function guardarSinRepetirEnJSON($juegossinrepetir) {
+    $jsonResult = json_encode($juegossinrepetir, JSON_PRETTY_PRINT);
+    file_put_contents('JSON_Resultat_eliminar_repetits.json', $jsonResult);
+}
+
+?>
 <!-- OCTAVA FUNCIÓN -->
 <?php
 function ordenarPorFecha($fecha) {
@@ -170,7 +210,29 @@ function ordenarJuegosAlfabeticamente($juegos) {
     return $juegos;
 }
 ?>
+<!-- DECIMA FUNCIÓN -->
+<?php
 
+function contarVideojuegosPorAnio($videojocs) {
+    $conteoPorAnio = array();
+
+    foreach ($videojocs as $videojoc) {
+        $anio = $videojoc['Llançament'];
+
+        // Extraer el año de la fecha y contar
+        $anio = date('Y', strtotime($anio));
+
+        if (array_key_exists($anio, $conteoPorAnio)) {
+            $conteoPorAnio[$anio]++;
+        } else {
+            $conteoPorAnio[$anio] = 1;
+        }
+    }
+
+    return $conteoPorAnio;
+}
+
+?>
 <!-- mostrar menú -->
 <?php
 function mostrarMenu() {
@@ -191,8 +253,8 @@ function mostrarMenu() {
     echo '<li><a href="funcion3.php">Eliminar Videojocs</a></li>';
     echo '<li><a href="funcion4.php">Afegir Data Expiració</a></li>';
     echo '<li><a href="funcion5.php">Comprovar Repetits</a></li>';
-    echo '<li><a href="#comprovarAmpliada">Comprovar Repetits Ampliada</a></li>';
-    echo '<li><a href="#eliminarRepetits">Eliminar Repetits</a></li>';
+    echo '<li><a href="funcion6.php">Comprovar Repetits Ampliada</a></li>';
+    echo '<li><a href="funcion7.php">Eliminar Repetits</a></li>';
     echo '<li><a href="funcion8.php">Videojoc més Modern i més Antic</a></li>';
     echo '<li><a href="funcion9.php">Ordenació Alfabètica de Videojocs</a></li>';
     echo '<li><a href="funcion10.php">Comptar videojocs de cada any</a></li>';

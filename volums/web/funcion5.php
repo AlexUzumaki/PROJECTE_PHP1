@@ -10,8 +10,8 @@ $informacio = carregarInformacio();
 
 // Llamar a la función para verificar registros duplicados
 if (jocsRepetits(json_encode($informacio))) {
-    echo '<p>HI HA REGISTRES DUPLICATS.</p>';
+    echo '<h1>HI HA JOCS DUPLICATS.</h1>';
 } else {
-    echo '<p>NO HI HA REGISTRES DUPLICATS.</p>';
+    echo '<h1>NO HI HA JOCS DUPLICATS.</h1>';
 }
 ?>
