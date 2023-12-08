@@ -12,7 +12,7 @@ $jsonResult = json_encode($juegosConFechaExpiracion, JSON_PRETTY_PRINT);
 file_put_contents('JSON_Resultat_Data_Expiració.json', $jsonResult);
 
 // Mostrar el resultado en forma de tabla
-echo '<h1>ID DELS VIDEOJOCS</h1>';
+echo '<h1><div class="titols">ID DELS VIDEOJOCS</div></h1>';
 echo '<table>';
 echo '<tr>';
 echo '<th>Nombre</th>';

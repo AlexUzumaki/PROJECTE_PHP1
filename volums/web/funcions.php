@@ -174,7 +174,14 @@ function ordenarJuegosAlfabeticamente($juegos) {
 <!-- mostrar menú -->
 <?php
 function mostrarMenu() {
-    echo '<link rel="stylesheet" href="index.css">';
+    echo '<html lang="ca">';
+    echo '<link rel="stylesheet" href="css/index.css">';
+    echo '<header>';
+    echo '<h1 style="font-family: "Courier New", monospace;">';
+    echo '<a href="index.php">PROJECTE VIDEOJOCS PHP</a>';
+    echo '</h1>';
+    echo '<img src="img/php.png" alt="imgphp" width="80" height="80">';
+    echo '</header>';
     echo '<nav>';
     echo '<input type="checkbox" id="menu-toggle">';
     echo '<label for="menu-toggle">☰ Menú</label>';
@@ -188,25 +195,8 @@ function mostrarMenu() {
     echo '<li><a href="#eliminarRepetits">Eliminar Repetits</a></li>';
     echo '<li><a href="funcion8.php">Videojoc més Modern i més Antic</a></li>';
     echo '<li><a href="funcion9.php">Ordenació Alfabètica de Videojocs</a></li>';
-    echo '<li><a href="funcion10.php">Comptar els videojocs de cada any</a></li>';
     echo '</ul>';
     echo '</nav>';
-    echo '<style>';
-    echo 'table {';
-    echo '    border-collapse: collapse;';
-    echo '    width: 100%;';
-    echo '}';
-    echo 'table, th, td {';
-    echo '    border: 1px solid black;';
-    echo '}';
-    echo 'th, td {';
-    echo '    padding: 10px;';
-    echo '    text-align: left;';
-    echo '}';
-    echo 'th {';
-    echo '    background-color: #f2f2f2;';
-    echo '}';
-    echo '</style>';
     }
 ?>
 

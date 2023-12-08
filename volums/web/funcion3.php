@@ -26,7 +26,7 @@ mostrarMenu();
         // $videojocsConNumeros = asignarNumeroAVideojuegos($videojocs);
 
         // Mostrar el resultado en forma de tabla
-        echo '<h1>Eliminar Videojocs 2020</h1>';
+        echo '<h1><div class="titols">Eliminar Videojocs 2020</div></h1>';
         echo '<table>';
         echo '<tr>';
         echo '<th>Nombre</th>';

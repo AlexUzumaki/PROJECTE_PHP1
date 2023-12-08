@@ -19,7 +19,7 @@ mostrarMenu();
         $videojocsConNumeros = asignarNumeroAVideojuegos($videojocs);
 
         // Mostrar el resultado en forma de tabla
-        echo '<h1>ID DELS VIDEOJOCS</h1>';
+        echo '<h1><div class="titols">ID DELS VIDEOJOCS</div></h1>';
         echo '<table>';
         echo '<tr>';
         echo '<th>Nombre</th>';
