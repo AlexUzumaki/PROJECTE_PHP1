@@ -195,6 +195,7 @@ function mostrarMenu() {
     echo '<li><a href="#eliminarRepetits">Eliminar Repetits</a></li>';
     echo '<li><a href="funcion8.php">Videojoc més Modern i més Antic</a></li>';
     echo '<li><a href="funcion9.php">Ordenació Alfabètica de Videojocs</a></li>';
+    echo '<li><a href="funcion10.php">Comptar videojocs de cada any</a></li>';
     echo '</ul>';
     echo '</nav>';
     }
