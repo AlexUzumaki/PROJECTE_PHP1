@@ -166,6 +166,15 @@ function guardarRepetidosEnJSONFuncion6($repetidosFuncion6) {
     $jsonResultFuncion6 = json_encode($repetidosFuncion6, JSON_PRETTY_PRINT);
     file_put_contents('JSON_Resultat_repetits.json', $jsonResultFuncion6);
 }
+function mostrarRepetits($juegosRepetidosFuncion6) {
+    echo '<h2>Videojuegos Repetidos:</h2>';
+    echo '<ul>';
+    foreach ($juegosRepetidosFuncion6 as $nombre => $cantidad) {
+        echo '<li>' . $nombre . ': ' . $cantidad . ' veces</li>';
+    }
+    echo '</ul>';
+}
+
 ?>
 
 <!-- SEPTIMA FUNCIÓN -->
