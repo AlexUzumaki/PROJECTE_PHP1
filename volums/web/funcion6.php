@@ -19,7 +19,7 @@ mostrarMenu();
     if (!empty($juegosRepetidosFuncion6)) {
         mostrarRepetits($juegosRepetidosFuncion6);
         guardarRepetidosEnJSONFuncion6($juegosRepetidosFuncion6);
-        echo 'S\'ha creat el fitxer JSON_Resultat_repetits.json amb els registres repetits.';
+        echo '<p> S\'ha creat el fitxer JSON_Resultat_repetits.json amb els registres repetits.</p>';
     } else {
         echo '<h2>No hi ha registres repetits.</h2>';
     }

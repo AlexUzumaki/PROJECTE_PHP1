@@ -141,6 +141,7 @@ function jocsRepetits($jsonString) {
 }
 ?>
 <!-- SEXTA FUNCIÓN -->
+<!-- SEXTA FUNCIÓN -->
 <?php
 function carregarInformacioFuncion6() {
     $archivoFuncion6 = 'games.json';
@@ -166,14 +167,28 @@ function guardarRepetidosEnJSONFuncion6($repetidosFuncion6) {
     $jsonResultFuncion6 = json_encode($repetidosFuncion6, JSON_PRETTY_PRINT);
     file_put_contents('JSON_Resultat_repetits.json', $jsonResultFuncion6);
 }
+
+
 function mostrarRepetits($juegosRepetidosFuncion6) {
     echo '<h2>Videojuegos Repetidos:</h2>';
-    echo '<ul>';
-    foreach ($juegosRepetidosFuncion6 as $nombre => $cantidad) {
-        echo '<li>' . $nombre . ': ' . $cantidad . ' veces</li>';
+    echo '<table border="1" style="width: 100%">';
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th>Título</th>';
+    echo '<th>Veces</th>';
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+    foreach ($juegosRepetidosFuncion6 as $juego => $cantidad) {
+        echo '<tr>';
+        echo '<td>' . $juego . '</td>';
+        echo '<td>' . $cantidad . '</td>';
+        echo '</tr>'; 
     }
-    echo '</ul>';
-}
+    echo '</tbody>';
+    echo '</table>';
+  }
+  
 
 ?>
 
